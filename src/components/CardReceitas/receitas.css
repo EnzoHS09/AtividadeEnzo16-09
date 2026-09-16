@@ -1,0 +1,83 @@
+.receita {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+    background-color: #fffaf3;
+    border-left: 6px solid #c1440e;
+    border-radius: 4px;
+    padding: 18px 22px;
+    box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.15);
+}
+
+.receita-foto {
+    width: 280px;
+    height: 280px;
+    align-self: flex-start;
+    object-fit: cover;
+    border-radius: 4px;
+    flex-shrink: 0;
+}
+
+.receita-corpo {
+    flex: 1;
+}
+
+.receita-titulo {
+    margin: 0 0 6px;
+    color: #3a2618;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.4rem;
+}
+
+.receita-tempos {
+    display: flex;
+    gap: 18px;
+    margin-bottom: 12px;
+    font-size: 0.85rem;
+    color: #8a5a2b;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+.receita-subtitulo {
+    margin: 14px 0 6px;
+    color: #c1440e;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.receita-ingredientes {
+    margin: 0;
+    padding-left: 18px;
+    color: #4a4034;
+}
+
+.receita-ingredientes li {
+    margin-bottom: 4px;
+}
+
+.receita-instrucoes {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    counter-reset: passo;
+}
+
+.receita-instrucoes p {
+    margin: 0;
+    padding-left: 26px;
+    position: relative;
+    color: #4a4034;
+    line-height: 1.5;
+}
+
+.receita-instrucoes p::before {
+    counter-increment: passo;
+    content: counter(passo) ".";
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+    color: #c1440e;
+}

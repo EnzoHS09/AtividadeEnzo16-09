@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import CardReceitas from "@/components/receitas";
+import CardReceitas from "@/components/CardReceitas";
 
 export default function Receitas(){
 
@@ -32,19 +32,25 @@ export default function Receitas(){
       
       <>
         <h1 className='titulo_pagina'>Receitas</h1>
-        <div className='receitas-container'>
-            {listaReceitas.map( (receitas, idx) => {
-                return <CardReceitas
-                    key={idx}
-                    imagem={receitas.image}
-                    titulo={receitas.name}
-                    ingredientes={receitas.ingredients}
-                    instrucoes={receitas.instructions}
-                    cookPrepMinutos={receitas.prepTimeMinutes}
-                    cookTimeMinutos={receitas.cookTimeMinutes}
-                />
-            })}
-        </div>
+        {msgErro != "" && <p>ERRO: {msgErro}</p>}
+
+        {listaReceitas.length > 0 ?
+          <div className='receitas-container'>
+              {listaReceitas.map((receitas, idx) => {
+                  return <CardReceitas
+                      key={idx}
+                      imagem={receitas.image}
+                      titulo={receitas.name}
+                      ingredientes={receitas.ingredients}
+                      instrucoes={receitas.instructions}
+                      cookPrepMinutos={receitas.prepTimeMinutes}
+                      cookTimeMinutos={receitas.cookTimeMinutes}
+                  />
+              })}
+          </div>
+          :
+          <p>Nenhuma receita encontrada...</p>
+        }
       </>
         
     )
